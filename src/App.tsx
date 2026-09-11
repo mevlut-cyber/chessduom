@@ -13,6 +13,8 @@ import { MultiplayerModal } from './components/MultiplayerModal';
 import { calculateBotMove } from './ai/chessBot';
 import { sounds } from './audio/soundEffects';
 import { initSocket, getSocket } from './services/socketService';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import {
   GameMode,
   BotDifficulty,
@@ -685,6 +687,10 @@ export const App: React.FC = () => {
         playerRole={onlineRole}
         opponentConnected={opponentConnected}
       />
+
+      {/* Vercel Web Analytics & Performance Insights */}
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 };
